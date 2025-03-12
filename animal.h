@@ -1,13 +1,14 @@
 #include <string>
+#include "attaque.h"
 
 class Animal
 {
-private:
+protected:
     std::string nom;
     int x;
     int y;
     bool vivant;
-    //Attaque typeAttaque;
+    Attaque typeAttaque;
 public:
     Animal(int maxX, int maxY);
     Animal(int maxX, int maxY, int a, int b);
@@ -15,7 +16,7 @@ public:
     int getX() const;
     int getY() const;
     bool getVivant() const;
-    //Attaque getAttaque() const;
+    Attaque getAttaque() const;
     void setVivant(bool v);
     bool attaque(Animal &a);
     virtual void setAttaque() = 0;

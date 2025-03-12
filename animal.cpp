@@ -1,7 +1,7 @@
-#include "animal.h"
-
-#include <stdlib.h>
 #include <cassert>
+#include <stdlib.h>
+
+#include "animal.h"
 
 Animal::Animal(int maxX, int maxY)
 {
@@ -48,6 +48,11 @@ bool Animal::getVivant() const
     return vivant;
 }
 
+Attaque Animal::getAttaque() const
+{
+    return typeAttaque;
+}
+
 //SETTERS
 
 void Animal::setVivant(bool v)
@@ -57,6 +62,13 @@ void Animal::setVivant(bool v)
 
 bool Animal::attaque(Animal &a)
 {
-    //TODO: After attaque is implemented
+    //If this animal wins the fight
+    if(typeAttaque.resoudreAttaque(a.getAttaque())) {
+        //Kill the other animal
+        a.setVivant(false);
+    } else {
+        //Kill ourselves
+        setVivant(false);
+    }
     return false;
 }
