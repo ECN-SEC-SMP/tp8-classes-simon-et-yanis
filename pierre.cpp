@@ -14,3 +14,8 @@ void Pierre::deplace(int maxX,int maxY ) {
     x = x;
     y = y;
 }
+
+char Pierre::getLetter() const
+{
+    return 'P';
+}

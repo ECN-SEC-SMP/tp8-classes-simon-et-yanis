@@ -27,3 +27,8 @@ void Loup::deplace(int maxX,int maxY ) {
     x = rand() % (maxX+1);
     y = rand() % (maxY+1);
 }
+
+char Loup::getLetter() const
+{
+    return 'W';
+}

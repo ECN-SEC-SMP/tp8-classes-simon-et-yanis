@@ -66,9 +66,10 @@ bool Animal::attaque(Animal &a)
     if(typeAttaque.resoudreAttaque(a.getAttaque())) {
         //Kill the other animal
         a.setVivant(false);
+        return true;
     } else {
         //Kill ourselves
         setVivant(false);
+        return false;
     }
-    return false;
 }

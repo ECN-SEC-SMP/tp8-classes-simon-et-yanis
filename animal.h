@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 #include "attaque.h"
 
@@ -21,9 +23,6 @@ public:
     bool attaque(Animal &a);
     virtual void setAttaque() = 0;
     virtual void deplace(int maxX, int maxY) = 0;
-
-    ~Animal();
-
-
+    virtual char getLetter() const = 0;
 
 };

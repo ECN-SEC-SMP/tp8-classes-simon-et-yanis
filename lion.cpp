@@ -21,28 +21,33 @@ void Lion::setAttaque(){
 
 
 void Lion::deplace(int maxX,int maxY ) {
-    int case = rand() % 3;
-    switch (case)
+    int cell = rand() % 3;
+    switch (cell)
     {
     case 0:
-        x += 1
-        y += 1
+        x += 1;
+        y += 1;
         break;
     case 1:
-        x -= 1
-        y += 1
+        x -= 1;
+        y += 1;
         break;
     case 2:
-        x += 1
-        y -= 1
+        x += 1;
+        y -= 1;
         break;
-    case case == 3:
-        x -= 1
-        y -= 1
+    case 3:
+        x -= 1;
+        y -= 1;
         break;
     
     default:
         break;
     }
 
+}
+
+char Lion::getLetter() const
+{
+    return 'L';
 }

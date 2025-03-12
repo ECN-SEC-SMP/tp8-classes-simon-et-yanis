@@ -1,11 +1,13 @@
 #include "animal.h"
 
-class Ours : Animal 
+class Ours : public Animal 
 {
 public:
 
 void setAttaque();
 void deplace(int maxX, int maxY);
+char getLetter() const;
+
 
 /// constructeurs
 Ours(int maxX, int maxY);
