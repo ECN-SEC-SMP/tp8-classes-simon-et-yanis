@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <cstring>
 
 #include "animal.h"
 #include "loup.h"
@@ -21,18 +22,27 @@ int main()
     std::cout << "Le jeu commence :" << std::endl;
 
     Animal* animaux[MAXX][MAXY];
+    for (size_t i = 0; i < MAXX; i++)
+    {
+        for (size_t j = 0; j < MAXY; j++)
+        {
+            animaux[i][j] = nullptr;
+        }
+        
+    }
+
     //Generate each type of animals
     for (size_t i = 0; i < ANIMALS_PER_TYPE; i++)
     {
         Animal* generated = new Loup(MAXX, MAXY);
         Animal* cell = animaux[generated->getX()][generated->getY()];
-    std::cout << "yo" << std::endl;
+        std::cout << "Generated: " << generated->getX() << " " << generated->getY() << std::endl;
 
         if(cell == nullptr) {
-            cell = generated;
+            animaux[generated->getX()][generated->getY()] = generated;
         } else {
             if(generated->attaque(*cell)) {
-                cell = generated;
+                animaux[generated->getX()][generated->getY()] = generated;
             } else {
                 //DO NOTHING, THE GENERATED ANIMAL LOST
             }
@@ -45,10 +55,10 @@ int main()
         Animal* cell = animaux[generated->getX()][generated->getY()];
 
         if(cell == nullptr) {
-            cell = generated;
+            animaux[generated->getX()][generated->getY()] = generated;
         } else {
             if(generated->attaque(*cell)) {
-                cell = generated;
+                animaux[generated->getX()][generated->getY()] = generated;
             } else {
                 //DO NOTHING, THE GENERATED ANIMAL LOST
             }
@@ -61,10 +71,10 @@ int main()
         Animal* cell = animaux[generated->getX()][generated->getY()];
 
         if(cell == nullptr) {
-            cell = generated;
+            animaux[generated->getX()][generated->getY()] = generated;
         } else {
             if(generated->attaque(*cell)) {
-                cell = generated;
+                animaux[generated->getX()][generated->getY()] = generated;
             } else {
                 //DO NOTHING, THE GENERATED ANIMAL LOST
             }
@@ -77,10 +87,10 @@ int main()
         Animal* cell = animaux[generated->getX()][generated->getY()];
 
         if(cell == nullptr) {
-            cell = generated;
+            animaux[generated->getX()][generated->getY()] = generated;
         } else {
             if(generated->attaque(*cell)) {
-                cell = generated;
+                animaux[generated->getX()][generated->getY()] = generated;
             } else {
                 //DO NOTHING, THE GENERATED ANIMAL LOST
             }

@@ -1,13 +1,14 @@
 #include <cassert>
 #include <stdlib.h>
+#include <iostream>
 
 #include "animal.h"
 
 Animal::Animal(int maxX, int maxY)
 {
     //Generate random coords
-    x = rand() % (maxX+1);
-    y = rand() % (maxY+1);
+    x = rand() % (maxX);
+    y = rand() % (maxY);
 
     //An animal should be alive when created
     vivant = true;
@@ -62,6 +63,12 @@ void Animal::setVivant(bool v)
 
 bool Animal::attaque(Animal &a)
 {
+    std::cout << "dhsidhqsiudhqsiudhqsiu" << std::endl;
+
+    //Generate attacks
+    setAttaque();
+    a.setAttaque();
+
     //If this animal wins the fight
     if(typeAttaque.resoudreAttaque(a.getAttaque())) {
         //Kill the other animal
