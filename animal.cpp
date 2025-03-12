@@ -25,3 +25,38 @@ Animal::Animal(int maxX, int maxY, int a, int b)
     //An animal should be alive when created
     vivant = true;
 }
+
+//GETTERS
+
+std::string Animal::getNom() const
+{
+    return nom;
+}
+
+int Animal::getX() const
+{
+    return x;
+}
+
+int Animal::getY() const
+{
+    return y;
+}
+
+bool Animal::getVivant() const
+{
+    return vivant;
+}
+
+//SETTERS
+
+void Animal::setVivant(bool v)
+{
+    vivant = v;
+}
+
+bool Animal::attaque(Animal &a)
+{
+    //TODO: After attaque is implemented
+    return false;
+}
