@@ -25,7 +25,7 @@ TypeAttaque Attaque::getType() const
 
 bool Attaque::resoudreAttaque(Attaque const &a) const
 {
-    if(type == a.getType()) return rand()%2;
+    if(type == a.getType()) return rand()%2; // if same attack then chose random winner
 
     switch (type)
     {
@@ -39,7 +39,6 @@ bool Attaque::resoudreAttaque(Attaque const &a) const
         assert(false); //SHOULDN'T EXIST
         break;
     }
-    
 
     return false;
 }
