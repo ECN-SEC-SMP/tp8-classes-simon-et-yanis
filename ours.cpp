@@ -9,7 +9,7 @@ void Ours::setAttaque(){
 }
 
 void Ours::deplace(int maxX,int maxY ) {
-    int cell = rand() % 7;
+    int cell = rand() % 8;
     switch (cell)
     {
     case 0:
@@ -48,6 +48,13 @@ void Ours::deplace(int maxX,int maxY ) {
     default:
         break;
     }
+
+    //Make sure the coords are in bounds
+    if(x>=maxX) x -= maxX;
+    if(x<0) x = maxX + x;
+
+    if(y>=maxY) y = maxY;
+    if(y<0) y = maxY + y;
 
 }
 

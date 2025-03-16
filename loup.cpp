@@ -24,8 +24,8 @@ void Loup::setAttaque(){
 
 
 void Loup::deplace(int maxX,int maxY ) {
-    x = rand() % (maxX+1);
-    y = rand() % (maxY+1);
+    x = rand() % (maxX);
+    y = rand() % (maxY);
 }
 
 char Loup::getLetter() const
