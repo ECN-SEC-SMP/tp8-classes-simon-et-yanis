@@ -64,11 +64,8 @@ void Animal::setVivant(bool v)
 bool Animal::attaque(Animal &a)
 {
     //Generate attacks
-    do
-    {
-        setAttaque();
-        a.setAttaque();
-    } while (typeAttaque.getType() == a.getAttaque().getType());
+    setAttaque();
+    a.setAttaque();
     
     //If this animal wins the fight
     if(typeAttaque.resoudreAttaque(a.getAttaque())) {

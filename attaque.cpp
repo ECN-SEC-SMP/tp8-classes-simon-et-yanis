@@ -25,6 +25,8 @@ TypeAttaque Attaque::getType() const
 
 bool Attaque::resoudreAttaque(Attaque const &a) const
 {
+    if(type == a.getType()) return rand()%2;
+
     switch (type)
     {
     case TypeAttaque::PIERRE:
