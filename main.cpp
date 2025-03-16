@@ -10,11 +10,13 @@ int main()
 
     Plateau p;
 
+    //Print the initial board
     p.affichage();
 
+    //Execute new turn if 'q' isn't pressed
     while (getchar() != 'q')
     {
-        /* code */
+        //Print separator between every turns
         std::cout << "==============================================" << std::endl;
 
         p.simulerTour();
