@@ -63,12 +63,13 @@ void Animal::setVivant(bool v)
 
 bool Animal::attaque(Animal &a)
 {
-    std::cout << "dhsidhqsiudhqsiudhqsiu" << std::endl;
-
     //Generate attacks
-    setAttaque();
-    a.setAttaque();
-
+    do
+    {
+        setAttaque();
+        a.setAttaque();
+    } while (typeAttaque.getType() == a.getAttaque().getType());
+    
     //If this animal wins the fight
     if(typeAttaque.resoudreAttaque(a.getAttaque())) {
         //Kill the other animal

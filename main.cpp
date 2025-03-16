@@ -1,130 +1,26 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cstring>
-
-#include "animal.h"
-#include "loup.h"
-#include "lion.h"
-#include "ours.h"
-#include "pierre.h"
-
-#define MAXX 10
-#define MAXY 10
-
-#define ANIMALS_TYPES 4
-
-#define MAX_ANIMALS_NBR (MAXX*MAXY)/4
-#define ANIMALS_PER_TYPE MAX_ANIMALS_NBR/ANIMALS_TYPES
+#include "plateau.h"
 
 int main()
 {
     srand(time(NULL)); //Init the random generator
     std::cout << "Le jeu commence :" << std::endl;
 
-    Animal* animaux[MAXX][MAXY];
-    for (size_t i = 0; i < MAXX; i++)
-    {
-        for (size_t j = 0; j < MAXY; j++)
-        {
-            animaux[i][j] = nullptr;
-        }
-        
-    }
+    Plateau p;
 
-    //Generate each type of animals
-    for (size_t i = 0; i < ANIMALS_PER_TYPE; i++)
-    {
-        Animal* generated = new Loup(MAXX, MAXY);
-        Animal* cell = animaux[generated->getX()][generated->getY()];
-        std::cout << "Generated: " << generated->getX() << " " << generated->getY() << std::endl;
+    p.affichage();
 
-        if(cell == nullptr) {
-            animaux[generated->getX()][generated->getY()] = generated;
-        } else {
-            if(generated->attaque(*cell)) {
-                animaux[generated->getX()][generated->getY()] = generated;
-            } else {
-                //DO NOTHING, THE GENERATED ANIMAL LOST
-            }
-        }
+    while (getchar() != 'q')
+    {
+        /* code */
+        std::cout << "==============================================" << std::endl;
+
+        p.simulerTour();
+        p.affichage();
     }
     
-    for (size_t i = 0; i < ANIMALS_PER_TYPE; i++)
-    {
-        Animal* generated = new Lion(MAXX, MAXY);
-        Animal* cell = animaux[generated->getX()][generated->getY()];
-
-        if(cell == nullptr) {
-            animaux[generated->getX()][generated->getY()] = generated;
-        } else {
-            if(generated->attaque(*cell)) {
-                animaux[generated->getX()][generated->getY()] = generated;
-            } else {
-                //DO NOTHING, THE GENERATED ANIMAL LOST
-            }
-        }
-    }
-
-    for (size_t i = 0; i < ANIMALS_PER_TYPE; i++)
-    {
-        Animal* generated = new Ours(MAXX, MAXY);
-        Animal* cell = animaux[generated->getX()][generated->getY()];
-
-        if(cell == nullptr) {
-            animaux[generated->getX()][generated->getY()] = generated;
-        } else {
-            if(generated->attaque(*cell)) {
-                animaux[generated->getX()][generated->getY()] = generated;
-            } else {
-                //DO NOTHING, THE GENERATED ANIMAL LOST
-            }
-        }
-    }
-
-    for (size_t i = 0; i < ANIMALS_PER_TYPE; i++)
-    {
-        Animal* generated = new Pierre(MAXX, MAXY);
-        Animal* cell = animaux[generated->getX()][generated->getY()];
-
-        if(cell == nullptr) {
-            animaux[generated->getX()][generated->getY()] = generated;
-        } else {
-            if(generated->attaque(*cell)) {
-                animaux[generated->getX()][generated->getY()] = generated;
-            } else {
-                //DO NOTHING, THE GENERATED ANIMAL LOST
-            }
-        }
-    }
-
-    //Affichage plateau
-
-    for (size_t i = 0; i < MAXX; i++)
-    {
-        for (size_t j = 0; j < MAXY; j++)
-        {
-            Animal* cell = animaux[i][j];
-            if(cell == nullptr) {
-                std::cout << "-";
-            } else {
-                std::cout << cell->getLetter();
-            }
-        }
-        std::cout << std::endl;
-    }
-    
-    for (size_t i = 0; i < MAXX; i++)
-    {
-        for (size_t j = 0; j < MAXY; j++)
-        {
-            Animal* cell = animaux[i][j];
-
-            if(cell != nullptr) {
-                delete cell;
-            }
-        }
-    }
-
 
     return 0;
 }
